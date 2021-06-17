@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<!--/*@thymesVar id="person" type="web.model.User"*/-->
+<div th:each="user : ${person}">
+
+    <!--/*@thymesVar id="getId" type="web.model.User"*/-->
+    <a th:href="@{/people/{id}(id=${user.getId()})}" th:text="${user.getName()}">User</a>
+</div>
+
+<br/>
+<hr/>
+<a href="/2_3_war_exploded/people/new">Create new Person</a>
+</body>
+</html>

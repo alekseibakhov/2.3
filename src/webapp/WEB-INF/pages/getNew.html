@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+</head>
+<body>
+<!--1) означает, что данная страница передает данные в ПОСТ метод, 2) кт так же использует аннотацию "/people/create", как и наша html -->
+<!--3) целевой объект, кт указан в методе -->
+            <!--    1                   2                       3-->
+<form th:method="POST" th:action="@{/people/create}" th:object="${person}">
+    <!--   1)тип строки   2)поле из объекта person 3)id поля для дальнейшей работы с ним -->
+    <input type="text" th:field="*{name}" id="name"/>
+    <input type="text" th:field="*{age}" id="age"/>
+
+    <!--1) для поля с id name  2) указываем название поля для пользователей -->
+    <label for="name"> Enter name: </label>
+    <label for="age"> Enter age: </label>
+
+    <!--Один отступ-->
+    <br/>
+    <!--1) это кнопка 2) с названием Create -->
+    <input type="submit" value="Create"/>
+</form>
+</body>
+</html>
